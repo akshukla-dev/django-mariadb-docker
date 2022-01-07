@@ -1,9 +1,11 @@
-# base image
-FROM python:3.6-slim
+# pull official base image
+FROM python:3.10-slim-buster
 
+# set environment variables
 # environment for python logging
+ENV PYTHONDONTWRITEBYTECODE 1
 # send output to terminal without buffer
-ENV PYTHONBUFFERED 1
+ENV PYTHONUNBUFFERED 1 
 
 # make workdir in container
 # and copy current directory contents to workdir

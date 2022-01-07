@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k21=0rp4gblyqo!-3da1vdjgok=g-ov(@bd4&v_4+kltg$h0z9'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS")
 
 
 # Application definition
@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'dmd.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'docker',
-        'USER': 'docker',
-        'PASSWORD': 'docker',
+        'NAME': 'dtc',
+        'USER': 'dtc-db-user',
+        'PASSWORD': 'dtc-db-password',
         "DEFAULT-CHARACTER-SET": 'utf8',
-        'HOST': 'db',
+        'HOST': 'docker-db', # Name of the db service in docker-compose.yml
         'PORT': 3306,
     }
 }
