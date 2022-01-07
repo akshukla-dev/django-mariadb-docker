@@ -80,7 +80,7 @@ DATABASES = {
         'USER': 'dtc-db-user',
         'PASSWORD': 'dtc-db-password',
         "DEFAULT-CHARACTER-SET": 'utf8',
-        'HOST': 'docker-db', # Name of the db service in docker-compose.yml
+        'HOST': 'db', # Name of the db service in docker-compose.yml
         'PORT': 3306,
     }
 }
